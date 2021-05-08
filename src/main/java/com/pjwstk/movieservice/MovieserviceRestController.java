@@ -28,14 +28,14 @@ public class MovieserviceRestController {
 
     @PostMapping
     public ResponseEntity<Movie> getMovieFromBody(@RequestBody Movie movie) {
-        movieService.getMovieFromBody();
-        return ResponseEntity.ok(movie);
+        Movie createdMovie = movieService.getMovieFromBody();
+        return ResponseEntity.ok(createdMovie);
     }
 
     @PutMapping("/{movieId}")
     public ResponseEntity<Movie> updateMovieById(@PathVariable("movieId") int movieId, @RequestBody Movie movie) {
-        movieService.updateMovieById(movieId);
-        return ResponseEntity.ok(movie);
+        Movie createdMovie = movieService.updateMovieById(movieId, movie);
+        return ResponseEntity.ok(createdMovie);
     }
 
     @DeleteMapping("/{movieId}")

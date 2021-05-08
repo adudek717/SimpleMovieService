@@ -21,12 +21,16 @@ public class MovieService {
         return movie1;
     }
 
-    public void getMovieFromBody() {
+    public Movie getMovieFromBody() {
+        Movie movie1 = new Movie(0, "Shrek", "Comedy");
         System.out.println("Getting movie from body!");
+        return movie1;
     }
 
-    public void updateMovieById(int movieId) {
+    public Movie updateMovieById(int movieId, Movie movie) {
+        Movie movie1 = movie;
         System.out.println("Updating movie with id: " + movieId);
+        return movie1;
     }
 
     public void deleteMovieById(int movieId) {
