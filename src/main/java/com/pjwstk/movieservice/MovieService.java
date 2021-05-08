@@ -14,4 +14,10 @@ public class MovieService {
 
         return List.of(movie1, movie2, movie3);
     }
+
+    public Movie getMovieById(int movieId) {
+        Movie movie1 = new Movie(0, "Shrek", "Comedy");
+
+        return movie1;
+    }
 }
