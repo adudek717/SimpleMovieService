@@ -28,6 +28,7 @@ public class MovieserviceRestController {
 
     @PostMapping
     public ResponseEntity<Movie> getMovieFromBody(@RequestBody Movie movie) {
+        movieService.getMovieFromBody();
         return ResponseEntity.ok(movie);
     }
 }

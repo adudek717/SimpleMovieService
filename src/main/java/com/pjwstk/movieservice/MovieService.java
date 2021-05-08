@@ -20,4 +20,8 @@ public class MovieService {
 
         return movie1;
     }
+
+    public void getMovieFromBody() {
+        System.out.println("Getting movie from body!");
+    }
 }
