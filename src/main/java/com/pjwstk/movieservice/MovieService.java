@@ -24,4 +24,8 @@ public class MovieService {
     public void getMovieFromBody() {
         System.out.println("Getting movie from body!");
     }
+
+    public void updateMovieById(int movieId) {
+        System.out.println("Updating movie with id: " + movieId);
+    }
 }

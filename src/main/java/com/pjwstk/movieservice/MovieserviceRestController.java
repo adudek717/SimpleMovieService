@@ -31,4 +31,10 @@ public class MovieserviceRestController {
         movieService.getMovieFromBody();
         return ResponseEntity.ok(movie);
     }
+
+    @PutMapping("/{movieId}")
+    public ResponseEntity<Movie> updateMovieById(@PathVariable("movieId") int movieId, @RequestBody Movie movie) {
+        movieService.updateMovieById(movieId);
+        return ResponseEntity.ok(movie);
+    }
 }
