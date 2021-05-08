@@ -28,4 +28,8 @@ public class MovieService {
     public void updateMovieById(int movieId) {
         System.out.println("Updating movie with id: " + movieId);
     }
+
+    public void deleteMovieById(int movieId) {
+        System.out.println("Deleting movie with id: " + movieId);
+    }
 }
