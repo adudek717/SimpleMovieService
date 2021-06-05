@@ -22,25 +22,39 @@ public class MovieserviceRestController {
     }
 
     @GetMapping("/{movieId}")
-    public ResponseEntity<Movie> getMovieById(@PathVariable("movieId") int movieId) {
-        return ResponseEntity.ok(movieService.getMovieById(movieId));
+    public ResponseEntity<Movie> getMovieById(@PathVariable("movieId") Long movieId) {
+        return ResponseEntity.ok(movieService.getMovieById(movieId).get());
     }
 
     @PostMapping
-    public ResponseEntity<Movie> getMovieFromBody(@RequestBody Movie movie) {
-        Movie createdMovie = movieService.getMovieFromBody();
+    public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
+        Movie createdMovie = movieService.update(movie);
         return ResponseEntity.ok(createdMovie);
     }
 
-    @PutMapping("/{movieId}")
-    public ResponseEntity<Movie> updateMovieById(@PathVariable("movieId") int movieId, @RequestBody Movie movie) {
-        Movie createdMovie = movieService.updateMovieById(movieId, movie);
+    @PutMapping
+    public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie) {
+        Movie createdMovie = movieService.update(movie);
         return ResponseEntity.ok(createdMovie);
     }
 
     @DeleteMapping("/{movieId}")
-    public ResponseEntity<Void> deleteMovieById(@PathVariable("movieId") int movieId) {
+    public ResponseEntity<Void> deleteMovieById(@PathVariable("movieId") Long movieId) {
         movieService.deleteMovieById(movieId);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping("/isAvailable/{movieId}")
+    public ResponseEntity<Void> changeAvailable(@PathVariable("movieId") Long movieId){
+        movieService.changeAvailable(movieId);
+        return ResponseEntity.ok().build();
+    }
 }
+
+/*
+    @PutMapping("/{movieId}")
+    public ResponseEntity<Movie> updateMovieById(@PathVariable("movieId") Long movieId, @RequestBody Movie movie) {
+        Movie createdMovie = movieService.update(movieId, movie);
+        return ResponseEntity.ok(createdMovie);
+    }
+ */

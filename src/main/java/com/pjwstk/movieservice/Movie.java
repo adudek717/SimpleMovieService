@@ -1,25 +1,26 @@
 package com.pjwstk.movieservice;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+//@Table(name="Movie")
 public class Movie {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private Category category;
     private String description;
     private int lengthInSeconds;
     private float rating;
+    private boolean isAvailable;
 
     public Movie() {
     }
 
-    public Movie(int id, String name, String category, String description, int lengthInSeconds, float rating) {
+    public Movie(Long id, String name, Category category, String description, int lengthInSeconds, float rating) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -28,38 +29,38 @@ public class Movie {
         this.rating = rating;
     }
 
-    public Movie(int id, String name, String category, String description) {
+    public Movie(Long id, String name, Category category, String description) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.description = description;
     }
 
-    public Movie(int id, String name, String category, int lengthInSeconds) {
+    public Movie(Long id, String name, Category category, int lengthInSeconds) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.lengthInSeconds = lengthInSeconds;
     }
 
-    public Movie(int id, String name, String category, float rating) {
+    public Movie(Long id, String name, Category category, float rating) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.rating = rating;
     }
 
-    public Movie(int id, String name, String category) {
+    public Movie(Long id, String name, Category category) {
         this.id = id;
         this.name = name;
         this.category = category;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,11 +72,11 @@ public class Movie {
         this.name = name;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
